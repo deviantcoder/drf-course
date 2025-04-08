@@ -1,9 +1,9 @@
 from django.test import TestCase
 from django.urls import reverse
 
-from api.models import User, Order
-
 from rest_framework import status
+
+from api.models import User, Order
 
 
 class UserOrderTestCase(TestCase):
@@ -23,7 +23,6 @@ class UserOrderTestCase(TestCase):
 
         response = self.client.get(reverse('user_orders'))
 
-        # assert response.status_code == 200
         self.assertEqual(response.status_code, status.HTTP_200_OK)
 
         orders = response.json()
